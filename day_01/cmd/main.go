@@ -3,6 +3,7 @@ package main
 import (
 	day_01 "aoc_01"
 	"fmt"
+	"io"
 	"log"
 	"os"
 )
@@ -19,9 +20,18 @@ func main() {
 		}
 	}(f)
 
-	v, err := day_01.Trebuchet(f)
+	v, err := day_01.Trebuchet(f, true)
 	if err != nil {
 		log.Println(err)
 	}
-	fmt.Println(v)
+	fmt.Println("First problem: ", v)
+	_, err = f.Seek(0, io.SeekStart)
+	if err != nil {
+		log.Println(err)
+	}
+	v, err = day_01.Trebuchet(f, false)
+	if err != nil {
+		log.Println(err)
+	}
+	fmt.Println("Second problem: ", v)
 }
