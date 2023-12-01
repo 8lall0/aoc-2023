@@ -77,7 +77,7 @@ func TestScanStringAsLetters(t *testing.T) {
 		{"abcone2threexyz", 13},
 		{"xtwone3four", 24},
 		{"4nineeightseven2", 42},
-		{"zoneight234", 14},
+		{"zoneight234one", 11},
 		{"7pqrstsixteen", 76},
 	}
 

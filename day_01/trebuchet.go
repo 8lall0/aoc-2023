@@ -78,18 +78,21 @@ func ScanStringAsLetters(input string) (int, error) {
 	// compare numbers
 	for i, n := range numCmp {
 		ndx := strings.Index(input, n)
+		lastNdx := strings.LastIndex(input, n)
 
 		if ndx == -1 {
 			continue
-		} else if first.index == -1 || ndx < first.index {
+		}
+		if first.index == -1 || ndx < first.index {
 			first.index = ndx
 			first.value = i + 1
 			if last.index == -1 {
 				last.index = ndx
 				last.value = i + 1
 			}
-		} else if ndx > last.index {
-			last.index = ndx
+		}
+		if lastNdx > last.index {
+			last.index = lastNdx
 			last.value = i + 1
 		}
 	}
@@ -97,9 +100,12 @@ func ScanStringAsLetters(input string) (int, error) {
 	// compare strings
 	for i, n := range strCmp {
 		ndx := strings.Index(input, n)
+		lastNdx := strings.LastIndex(input, n)
+
 		if ndx == -1 {
 			continue
-		} else if first.index == -1 || ndx < first.index {
+		}
+		if first.index == -1 || ndx < first.index {
 			first.index = ndx
 			first.value = i + 1
 
@@ -107,8 +113,9 @@ func ScanStringAsLetters(input string) (int, error) {
 				last.index = ndx
 				last.value = i + 1
 			}
-		} else if ndx > last.index {
-			last.index = ndx
+		}
+		if lastNdx > last.index {
+			last.index = lastNdx
 			last.value = i + 1
 		}
 	}
