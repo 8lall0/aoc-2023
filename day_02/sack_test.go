@@ -29,16 +29,17 @@ func TestGameParser(t *testing.T) {
 
 func TestSackPick(t *testing.T) {
 	tests := []struct {
-		input    string
-		expected int
+		input     string
+		expected  int
+		expected2 int
 	}{
-		{test, 8},
+		{test, 8, 2286},
 	}
 
 	for _, test := range tests {
 		read := strings.NewReader(test.input)
-		result, err := SackPick(read)
-		if result != test.expected || err != nil {
+		result, result2, err := SackPick(read)
+		if result != test.expected || result2 != test.expected2 || err != nil {
 			t.Errorf("For input %s, expected %v, but got %v", test.input, test.expected, result)
 		}
 	}

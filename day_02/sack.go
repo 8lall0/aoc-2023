@@ -22,23 +22,26 @@ func (g *game) isValid() bool {
 	return g.red <= maxRed && g.blue <= maxBlue && g.green <= maxGreen
 
 }
-func SackPick(r io.Reader) (int, error) {
+func SackPick(r io.Reader) (int, int, error) {
 	var buffer string
 	sum := 0
+	sum2 := 0
 
 	scanner := bufio.NewScanner(r)
 	for scanner.Scan() {
 		buffer = scanner.Text()
 		g, err := gameParser(buffer)
 		if err != nil {
-			return 0, err
+			return 0, 0, err
 		}
 		if g.isValid() {
 			sum += g.game
 		}
+
+		sum2 += g.red * g.blue * g.green
 	}
 
-	return sum, nil
+	return sum, sum2, nil
 }
 
 func gameParser(input string) (game, error) {

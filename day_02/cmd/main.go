@@ -19,9 +19,10 @@ func main() {
 		}
 	}(f)
 
-	res, err := day_02.SackPick(f)
+	res, res2, err := day_02.SackPick(f)
 	if err != nil {
 		log.Println(err)
 	}
 	fmt.Println("First problem:", res)
+	fmt.Println("Second problem:", res2)
 }
