@@ -1,7 +1,7 @@
 package main
 
 import (
-	day_01 "aoc_01"
+	"aoc_2023/day_01"
 	"fmt"
 	"io"
 	"log"
