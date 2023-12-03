@@ -80,20 +80,3 @@ func TestEngineMatrix(t *testing.T) {
 		}
 	}
 }
-
-/*
-func TestGameParser(t *testing.T) {
-	tests := []struct {
-		input    string
-		expected game
-	}{
-		{"Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green", game{game: 1, red: 4, blue: 6, green: 2}},
-	}
-
-	for _, test := range tests {
-		result, err := gameParser(test.input)
-		if result != test.expected || err != nil {
-			t.Errorf("For input %s, expected %v, but got %v", test.input, test.expected, result)
-		}
-	}
-}*/
